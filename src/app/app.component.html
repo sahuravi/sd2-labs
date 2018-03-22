@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+
+
+<input type="text" placeholder="Search by name" [(ngModel)]="searchText" (keyup)="searchHandler($event)" (change)="searchHandler($event)" />
+<button (click)="sortByDate()">Sort By Joining Date</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Joining Date</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{emp?.name}}</td>
+        <td>{{emp?.age}}</td>
+        <td>{{emp?.joining_date}}</td>
+      </tr>
+  </tbody>
+</table>
