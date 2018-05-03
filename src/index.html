@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Angular4Sample</title>
@@ -7,8 +8,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+
+    var socket = io('http://localhost:9000');
+
+    socket.on('error-message', function (data) {
+      $('#content').empty();
+      $('#content').append(`<p><strong>Error: ${data.message}</strong></p>`);
+    });
+
+    socket.on('file-change', function (fileData) {
+      updateParticularFileData(fileData[0], fileData.slice(1));
+    });
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

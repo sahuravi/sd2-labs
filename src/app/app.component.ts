@@ -4,11 +4,11 @@ import { DataService } from './services/data.service';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
+    styleUrls: ['./app.component.scss'],
     providers: [DataService]
 })
 export class AppComponent implements OnInit {
-    title = 'Assignment is a fun...';
+    title = 'Home Page';
     /* originalEmployees: any = [
         {
             "name": "Jon",

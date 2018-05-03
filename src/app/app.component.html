@@ -1,13 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     {{ title }}!
   </h1>
-</div>
+</div> -->
 
 
 <input type="text" placeholder="Search by name" [(ngModel)]="searchText" (keyup)="searchHandler($event)" (change)="searchHandler($event)" />
-<button (click)="sortByDate()">Sort By Joining Date</button>
+<button (click)="sortByDate()"><i class="fa fa-american-sign-language-interpreting fa-5x" aria-hidden="true">Sort By Joining Date</i></button>
 
 <table class="table">
   <thead>
