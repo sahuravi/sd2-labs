@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/switchMap';
+
+import { DataService } from './services/data.service';
 
 @Component({
     selector: 'app-root',
@@ -12,10 +9,9 @@ import 'rxjs/add/operator/switchMap';
 })
 export class AppComponent implements OnInit {
     title = 'Home Page';
-    employees: any;
-    searchText: string = "";
+    data: any;
 
-    constructor(private http: HttpClient) {
+    constructor(private dataService: DataService) {
 
     }
 
@@ -24,10 +20,14 @@ export class AppComponent implements OnInit {
     }
 
     getOrdersInfo() {
+        this.dataService.getOrder()
+            .subscribe((data) => {
+                this.data = data;
+            })
+            .catch((err) => {
+                console.log(err.message);
+            })
 
-        this.http.get(`/api/orders-data`)
-            .map((res: Response) => res)
-            .catch((error: any) => Observable.throw(error.message || 'Server error'));
 
     }
 
