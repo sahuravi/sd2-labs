@@ -1,35 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataService {
-    originalEmployees = [
-        {
-            "name": "Jon",
-            "joining_date": "23/10/2015",
-            "age": 23
-        },
-        {
-            "name": "Viki",
-            "joining_date": "24/01/2015",
-            "age": 20
-        },
-        {
-            "name": "Abc",
-            "joining_date": "25/10/2015",
-            "age": 43
-        },
-        {
-            "name": "XYZ",
-            "joining_date": "28/10/2015",
-            "age": 21
-        }
-    ];
 
-    getEmployees(): any {
-        return this.originalEmployees;
-    }
+    constructor(private http: HttpClient) { }
 
-    updateEmpList(empList) {
-        this.originalEmployees = empList;
+    getOrder(): any {
+        return this.http.get(`/api/orders-data`)
+            .map((res: Response) => res)
+            .catch((error: any) => Observable.throw(error.message || 'Server error'));
     }
 }

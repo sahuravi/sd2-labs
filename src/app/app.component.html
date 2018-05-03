@@ -6,9 +6,11 @@
 </div> -->
 
 
-<input type="text" placeholder="Search by name" [(ngModel)]="searchText" (keyup)="searchHandler($event)" (change)="searchHandler($event)" />
-<button (click)="sortByDate()"><i class="fa fa-american-sign-language-interpreting fa-5x" aria-hidden="true">Sort By Joining Date</i></button>
+<!-- <input type="text" placeholder="Search by name" [(ngModel)]="searchText" (keyup)="searchHandler($event)" (change)="searchHandler($event)" />
+  <button (click)="sortByDate()"><i class="fa fa-american-sign-language-interpreting" aria-hidden="true">Sort By Joining Date</i></button> -->
 
+<button type="button" class="btn btn-secondary" (click)="getOrdersInfo()">Get Orders</button>
+<!-- 
 <table class="table">
   <thead>
     <tr>
@@ -24,4 +26,4 @@
         <td>{{emp?.joining_date}}</td>
       </tr>
   </tbody>
-</table>
+</table> -->
