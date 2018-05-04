@@ -5,6 +5,8 @@ const io = require('socket.io')(server);
 const fs = require('fs');
 const routes = require('./server/routes');
 
+const config = require('./server/config');
+
 app.use(express.static(__dirname + '/dist'));
 
 app.use('/api', routes());
@@ -14,17 +16,15 @@ app.listen(process.env.PORT || 9000, () => {
 });
 
 io.on('connection', function (socket) {
-    fs.watch('./server/data/order.js', { persistent: true }, (event, fileName) => {
+    console.log("Connected...");
+    
+    fs.watch(`${config.server}/data/order.js`, { persistent: true }, (event, fileName) => {
         if (event === 'change') {
-            fs.readFile(`./server/data/${fileName}`, 'utf8', (error, fileData) => {
+            fs.readFile(`${config.server}/data/${fileName}`, 'utf8', (error, fileData) => {
                 if (error) {
                     socket.emit('error-message', { message: error.message });
                 } else {
-                    let lineArray = fileData.split('\n');
-                    let newArray = lineArray.slice(lineArray.length - lastLineNumbers);
-                    // filesData[fileName] = newArray;
-                    newArray.unshift(fileName);
-                    socket.emit('file-change', newArray);
+                    socket.emit('file-change', JSON.parse(fileData));
                 }
             });
         }

@@ -9,21 +9,25 @@
 <!-- <input type="text" placeholder="Search by name" [(ngModel)]="searchText" (keyup)="searchHandler($event)" (change)="searchHandler($event)" />
   <button (click)="sortByDate()"><i class="fa fa-american-sign-language-interpreting" aria-hidden="true">Sort By Joining Date</i></button> -->
 
+
 <button type="button" class="btn btn-secondary" (click)="getOrdersInfo()">Get Orders</button>
 <!-- 
-<table class="table">
+<br/>
+
+
+<table class="table" *ngIf="orderData.length > 0">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Joining Date</th>
+      <th>Order ID</th>
+      <th>Custom Price</th>
+      <th>Custom Bonus Price</th>
     </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let emp of employees">
-        <td>{{emp?.name}}</td>
-        <td>{{emp?.age}}</td>
-        <td>{{emp?.joining_date}}</td>
-      </tr>
+    <tr *ngFor="let order of orderData">
+      <td>{{order?.orderid}}</td>
+      <td>{{order?.customprice}}</td>
+      <td>{{order?.custombonusprice}}</td>
+    </tr>
   </tbody>
 </table> -->

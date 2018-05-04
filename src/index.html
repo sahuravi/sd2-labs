@@ -2,30 +2,103 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Angular4Sample</title>
-  <base href="/">
+    <meta charset="utf-8">
+    <title>Example</title>
+    <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
-  <script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script> -->
+    <!-- <script>
 
-    var socket = io('http://localhost:9000');
+        var socket = io('http://localhost:9000');
 
-    socket.on('error-message', function (data) {
-      $('#content').empty();
-      $('#content').append(`<p><strong>Error: ${data.message}</strong></p>`);
-    });
+        socket.on('error-message', function (data) {
+            $('#content').empty();
+            $('#content').append(`<p><strong>Error: ${data.message}</strong></p>`);
+        });
 
-    socket.on('file-change', function (fileData) {
-      updateParticularFileData(fileData[0], fileData.slice(1));
-    });
-  </script>
+        socket.on('file-change', function (fileData) {
+            updateParticularFileData(fileData[0], fileData.slice(1));
+        });
+
+        function updateParticularFileData(fileName, fileData) {
+            let fileDom = $('#content').find(`.${fileName.replace(/\./g, '-')}`);
+            fileDom.empty();
+            fileDom.append(`<p><strong>File: ${fileName}</strong></p>`);
+            for (let index = 0; index < fileData.length; index++) {
+                fileDom.append(`<p>${fileData[index]}</p>`);
+            }
+        }
+
+        function addData(response) {
+            let container = $('.data-container');
+            container.empty();
+            let counter = 1;
+            
+            // $('.data-container').empty().append(fileContainerDiv);
+            response.forEach(element => {
+                let fileContainerDiv = $(`<div class="order-${counter}">Order ${counter}</div>`);
+                counter++;
+                container.append(fileContainerDiv);
+                
+                let keys = Object.keys(element);
+
+                keys.forEach((key) => {
+                    fileContainerDiv.append(`<div><stront>${key}:</strong> ${element[key]}</div>`);
+                })
+            });
+            /* let keys = Object.keys(response);
+            for (let index = 0; index < response.length; index++) {
+                let fileName = keys[index];
+                let fileData = response[fileName];
+                let fileContainerDiv = $(`<div class="${fileName.replace(/\./g, '-')}"></div>`);
+                $('#content').append(fileContainerDiv);
+                fileContainerDiv.append(`<p><strong>File: ${fileName}</strong></p>`);
+
+                for (let index = 0; index < fileData.length; index++) {
+                    fileContainerDiv.append(`<p>${fileData[index]}</p>`);
+                }
+            } */
+        }
+
+        function getData() {
+            $.ajax({
+                url: '/api/orders-data',
+                type: "GET",
+                success: function (response) {
+                    addData(response);
+                },
+                error: function (params) {
+                    console.log(params);
+                },
+                async: false
+            });
+        }
+    </script> -->
 </head>
 
 <body>
-  <app-root></app-root>
+    <app-root></app-root>
+
+    <div class="data-container">
+        <!-- <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Custom Price</th>
+                    <th>Custom Bonus Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orderData">
+                    <td>{{order?.orderid}}</td>
+                    <td>{{order?.customprice}}</td>
+                    <td>{{order?.custombonusprice}}</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
 </body>
 
 </html>

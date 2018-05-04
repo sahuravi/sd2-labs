@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from './services/data.service';
 
+import * as io from 'socket.io-client';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -9,27 +11,30 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent implements OnInit {
     title = 'Home Page';
-    data: any;
+    orderData: any;
+    url = 'http://localhost:9000';
+    socket: any;
 
     constructor(private dataService: DataService) {
-
+        this.orderData = [];
+        this.socket = io(this.url);
     }
 
     ngOnInit() {
+        
 
+        this.socket.on('file-change', function (fileData) {
+            debugger;
+            console.log(fileData);
+        });
     }
 
     getOrdersInfo() {
         this.dataService.getOrder()
             .subscribe((data) => {
-                this.data = data;
-            })
-            .catch((err) => {
+                this.orderData = data;
+            }, ((err) => {
                 console.log(err.message);
-            })
-
-
+            }))
     }
-
-
 }
