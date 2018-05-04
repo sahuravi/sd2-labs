@@ -1,39 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
 
+import * as io from "socket.io-client";
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    providers: [DataService]
+    providers: []
 })
 export class AppComponent implements OnInit {
-    title = 'Assignment is a fun...';
-    /* originalEmployees: any = [
-        {
-            "name": "Jon",
-            "joining_date": "23/10/2015",
-            "age": 23
-        },
-        {
-            "name": "Viki",
-            "joining_date": "24/01/2015",
-            "age": 20
-        },
-        {
-            "name": "Abc",
-            "joining_date": "25/10/2015",
-            "age": 43
-        },
-        {
-            "name": "XYZ",
-            "joining_date": "28/10/2015",
-            "age": 21
-        }
-    ]; */
+
+    title = 'Do It';
+    
+    ngOnInit() {}
+    /* title = 'Do It';
     employees: any;
     searchText: string = "";
-
+    socket = io();
     constructor(private dataService: DataService) {
         this.employees = Array.prototype.slice.call(this.dataService.getEmployees());
     }
@@ -103,5 +87,5 @@ export class AppComponent implements OnInit {
                 timeoutId = null;
             }, delay);
         }
-    }
+    } */
 }
