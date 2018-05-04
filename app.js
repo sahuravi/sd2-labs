@@ -3,6 +3,7 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const fs = require('fs');
+const path = require('path');
 const routes = require('./server/routes');
 
 const config = require('./server/config');
@@ -11,26 +12,29 @@ app.use(express.static(__dirname + '/dist'));
 
 app.use('/api', routes());
 
-app.listen(process.env.PORT || 9000, () => {
-    console.log(`Application running on port: ${process.env.PORT || 9000}`);
-});
 
 io.on('connection', function (socket) {
     console.log("Connected...");
-    
-    fs.watch(`${config.server}/data/order.js`, { persistent: true }, (event, fileName) => {
-        if (event === 'change') {
-            fs.readFile(`${config.server}/data/${fileName}`, 'utf8', (error, fileData) => {
-                if (error) {
-                    socket.emit('error-message', { message: error.message });
-                } else {
-                    socket.emit('file-change', JSON.parse(fileData));
-                }
-            });
-        }
-    });
-});
+    let filePath = path.join(config.server, 'data', 'orders.js');
+    try {
 
+
+        fs.watch(filePath, { persistent: true }, (event, fileName) => {
+            if (event === 'change') {
+                fs.readFile(filePath, 'utf8', (error, fileData) => {
+                    if (error) {
+                        socket.emit('error-message', { message: error.message });
+                    } else {
+                        socket.emit('file-change', JSON.parse(fileData));
+                    }
+                });
+            }
+        });
+    } catch (error) {
+        console.log(error.stack);
+    }
+});
+/* 
 function readFileAsynchronously(rootFolder, fileName) {
     return new Promise((resolve, reject) => {
         fs.readFile(`${rootFolder}/${fileName}`, 'utf8', (err, file) => {
@@ -45,4 +49,8 @@ function readFileAsynchronously(rootFolder, fileName) {
             }
         });
     });
-}
+} */
+
+server.listen(process.env.PORT || 9000, () => {
+    console.log(`Application running on port: ${process.env.PORT || 9000}`);
+});

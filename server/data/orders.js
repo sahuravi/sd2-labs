@@ -22,6 +22,6 @@
     {
         "orderid": "5aeac2805d7008400b440f7e",
         "customprice": "3,192.84",
-        "custombonusprice": "1,498.40"
+        "custombonusprice": "1,498.40299"
     }
 ]

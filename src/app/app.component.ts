@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
         this.socket.on('file-change', function (fileData) {
             debugger;
             console.log(fileData);
+            this.orderData = fileData;
         });
     }
 
