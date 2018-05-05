@@ -1,0 +1,16 @@
+select-amount-container {
+    display: block;
+    margin: auto;
+    width: 800px;
+    height: 560px;
+    padding: 10px;
+    .select-amount-header {
+        font-size: 24px;
+        font-weight: 500;
+        color: #8f0000;
+    }
+    .select-amount-body {
+        .progress-header {}
+        .amount-container {}
+    }
+}

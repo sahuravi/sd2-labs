@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { DataService } from '../../services/data.service';
 
@@ -17,7 +18,7 @@ export class FetchDataComponent implements OnInit {
     socket: any;
     json: JSON = JSON;
 
-    constructor(private dataService: DataService, private ref: ChangeDetectorRef) {
+    constructor(private dataService: DataService, private ref: ChangeDetectorRef, private router: Router) {
         this.orderData = [];
         this.socket = io(this.url);
 
@@ -41,6 +42,6 @@ export class FetchDataComponent implements OnInit {
     }
 
     addCashInstantly() {
-
+        this.router.navigateByUrl('/select-amount');
     }
 }
