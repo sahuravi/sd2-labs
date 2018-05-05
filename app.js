@@ -17,17 +17,19 @@ io.on('connection', function (socket) {
     console.log("Connected...");
     let filePath = path.join(config.server, 'data', 'orders.js');
     try {
-
-
         fs.watch(filePath, { persistent: true }, (event, fileName) => {
             if (event === 'change') {
-                fs.readFile(filePath, 'utf8', (error, fileData) => {
-                    if (error) {
-                        socket.emit('error-message', { message: error.message });
-                    } else {
-                        socket.emit('file-change', JSON.parse(fileData));
-                    }
-                });
+                try {
+                    fs.readFile(filePath, 'utf8', (error, fileData) => {
+                        if (error) {
+                            socket.emit('error-message', { message: error.message });
+                        } else {
+                            socket.emit('file-change', fileData);
+                        }
+                    });
+                } catch (error) {
+                    console.log(error.stack);
+                }
             }
         });
     } catch (error) {
