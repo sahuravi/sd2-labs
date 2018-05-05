@@ -6,18 +6,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
 
 import { AppComponent } from './app.component';
-
+import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        FetchDataComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [DataService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

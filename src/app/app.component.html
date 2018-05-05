@@ -1,17 +1,1 @@
-
-<table class="table" *ngIf="orderData.length > 0">
-  <thead>
-    <tr>
-      <th>Order ID</th>
-      <th>Custom Price</th>
-      <th>Custom Bonus Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let order of orderData">
-      <td>{{order?.orderid}}</td>
-      <td>{{order?.customprice}}</td>
-      <td>{{order?.custombonusprice}}</td>
-    </tr>
-  </tbody>
-</table>
+<app-fetch-data></app-fetch-data>
