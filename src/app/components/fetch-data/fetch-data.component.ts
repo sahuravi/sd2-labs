@@ -40,7 +40,7 @@ export class FetchDataComponent implements OnInit {
         });
     }
 
-    getOrdersInfo() {
+    addCashInstantly() {
 
     }
 }

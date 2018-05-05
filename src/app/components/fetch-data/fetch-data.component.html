@@ -1,16 +1,21 @@
-<table class="table" *ngIf="orderData.length > 0">
-    <thead>
-        <tr>
-            <th>Order ID</th>
-            <th>Custom Price</th>
-            <th>Custom Bonus Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let order of orderData">
-            <td>{{order?.orderid}}</td>
-            <td>{{order?.customprice}}</td>
-            <td>{{order?.custombonusprice}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="data-container">
+    <table class="table" *ngIf="orderData.length > 0">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Custom Price</th>
+                <th>Custom Bonus Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orderData">
+                <td>{{order?.orderid}}</td>
+                <td>{{order?.customprice}}</td>
+                <td>{{order?.custombonusprice}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<button class="btn btn-primary add-cash" (click)="addCashInstantly()"><i class="fa fa-inr" aria-hidden="true"></i> Add Cash Instantly</button>
