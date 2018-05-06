@@ -16,7 +16,10 @@ const routes: Routes = [
         path: 'select-amount', component: SelectAmountComponent
     },
     {
-        path: 'select-method', component: SelectMethodComponent
+        path: 'select-method', component: SelectMethodComponent,
+        children: [
+            { path: 'credit-card', component: CreditCardComponent }
+        ]
     },
     {
         path: 'select-method/credit-card', component: CreditCardComponent
