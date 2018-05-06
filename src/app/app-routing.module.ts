@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SelectAmountRadioComponent } from './components/select-amount-radio/select-amount-radio.component';
 import { SelectMethodComponent } from './components/select-method/select-method.component';
 import { CreditCardComponent } from './components/credit-card/credit-card.component';
+import { NetBankingComponent } from './components/net-banking/net-banking.component'
 
 const routes: Routes = [
     {
@@ -18,7 +19,8 @@ const routes: Routes = [
     {
         path: 'select-method', component: SelectMethodComponent,
         children: [
-            { path: 'credit-card', component: CreditCardComponent }
+            { path: 'credit-card', component: CreditCardComponent },
+            { path: 'net-banking', component: NetBankingComponent }
         ]
     },
     {
@@ -48,5 +50,6 @@ export const AppRoutingComponent = [
     PageNotFoundComponent,
     SelectAmountRadioComponent,
     SelectMethodComponent,
-    CreditCardComponent
+    CreditCardComponent,
+    NetBankingComponent
 ];

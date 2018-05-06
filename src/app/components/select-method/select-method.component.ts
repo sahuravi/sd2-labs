@@ -44,7 +44,7 @@ export class SelectMethodComponent implements OnInit {
         this.netBankingFlag = true;
         this.walletsFlag = false;
         this.upiFlag = false;
-        this.router.navigateByUrl('/select-method/credit-card');
+        this.router.navigateByUrl('/select-method/net-banking');
     }
 
     wallets() {
