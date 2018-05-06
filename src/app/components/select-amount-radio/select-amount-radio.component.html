@@ -1,0 +1,26 @@
+<!-- <div class="price-container">
+    <span class="bonus-price">Bonus
+        <i class="fa fa-inr" aria-hidden="true"></i> {{bonusPrice}}</span>
+    <span class="price">
+        <i class="fa fa-inr" aria-hidden="true"></i> {{price}}</span>
+</div> -->
+
+<label class="container">
+    <div class="display-inline-block" *ngIf="!customPrice; else templateName">
+        <span class="bonus-price">Bonus
+            <i class="fa fa-inr" aria-hidden="true"></i> {{bonusPrice}}</span>
+        <span class="price">
+            <i class="fa fa-inr" aria-hidden="true"></i> {{price}}</span>
+        <input type="radio" checked="checked" name="radio">
+        <span class="checkmark"></span>
+    </div>
+    <ng-template #templateName>
+        <div class="display-inline-block">
+            <span class="bonus-price">Enter Amount</span>
+            <span class="price">
+                <i class="fa fa-inr" aria-hidden="true"></i> <span class="input-price" contenteditable></span></span>
+            <input type="radio" checked name="radio">
+            <span class="checkmark"></span>
+        </div>
+    </ng-template>
+</label>

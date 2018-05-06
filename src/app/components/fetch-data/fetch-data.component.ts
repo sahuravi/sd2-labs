@@ -35,7 +35,7 @@ export class FetchDataComponent implements OnInit {
             }));
 
         this.socket.on('file-change', function (fileData) {
-            // console.log(fileData);
+            
             self.orderData = JSON.parse(fileData);
             self.ref.detectChanges();
         });

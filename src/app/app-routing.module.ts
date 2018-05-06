@@ -7,6 +7,7 @@ import { SelectAmountComponent } from './components/select-amount/select-amount.
 import { AppComponent } from './app.component';
 import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SelectAmountRadioComponent } from './components/select-amount-radio/select-amount-radio.component';
 
 const routes: Routes = [
     {
@@ -33,5 +34,6 @@ export class AppRoutingModule { }
 export const AppRoutingComponent = [
     SelectAmountComponent,
     FetchDataComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SelectAmountRadioComponent
 ];
