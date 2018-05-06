@@ -37,7 +37,7 @@ export class SelectAmountComponent implements OnInit {
     }
 
     proceed() {
-        this.router.navigateByUrl('/select-method');
+        this.router.navigateByUrl('/select-method/credit-card');
     }
 
     ngOnInit() { }

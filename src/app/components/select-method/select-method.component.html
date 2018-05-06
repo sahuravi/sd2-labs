@@ -1,11 +1,11 @@
 <div class="outer-container">
     <div class="method-container">
         <div class="method-type">
-            <div class="payment credit-card" (click)="creditCard()">Credit Card</div>
-            <div class="payment debit-card">Debit Card</div>
-            <div class="payment net-banking">Net Banking</div>
-            <div class="payment wallets">Walletes</div>
-            <div class="payment upi">UPI</div>
+            <div class="payment credit-card" (click)="creditCard()" [ngClass]="{'selected-item': creditCardFlag, '': !creditCardFlag}">Credit Card</div>
+            <div class="payment debit-card" (click)="debitCard()" [ngClass]="{'selected-item': debitCardFlag, '': !debitCardFlag}">Debit Card</div>
+            <div class="payment net-banking" (click)="netBanking()" [ngClass]="{'selected-item': netBankingFlag, '': !netBankingFlag}">Net Banking</div>
+            <div class="payment wallets" (click)="wallets()" [ngClass]="{'selected-item': walletsFlag, '': !walletsFlag}">Walletes</div>
+            <div class="payment upi" (click)="upi()" [ngClass]="{'selected-item': upiFlag, '': !upiFlag}">UPI</div>
         </div>
         <div class="right-container">
             <router-outlet></router-outlet>

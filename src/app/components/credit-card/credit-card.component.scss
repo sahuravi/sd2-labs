@@ -1,0 +1,26 @@
+.card-container {
+    padding: 28px 20px 0;
+    .input-label {
+        font-size: 13px;
+        line-height: 25px;
+    }
+    .styled-select {
+        width: 200px;
+        .input-field-method-dropdown {
+            width: 200px;
+            font-size: 13px;
+            option {
+                padding-left: 10px;
+            }
+        }
+    }
+    .deposit-action-button {
+        background-color: #1d8722;
+        height: 45px;
+        width: 165px;
+        line-height: 45px;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 4px;
+    }
+}

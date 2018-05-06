@@ -11,10 +11,57 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class SelectMethodComponent implements OnInit {
 
+    creditCardFlag = true;
+    debitCardFlag = false;
+    netBankingFlag = false;
+    walletsFlag = false;
+    upiFlag = false;
+
     constructor(private router: Router) { }
     ngOnInit() { }
 
     creditCard() {
+        this.creditCardFlag = true;
+        this.debitCardFlag = false;
+        this.netBankingFlag = false;
+        this.walletsFlag = false;
+        this.upiFlag = false;
+        this.router.navigateByUrl('/select-method/credit-card');
+    }
+
+    debitCard() {
+        this.creditCardFlag = false;
+        this.debitCardFlag = true;
+        this.netBankingFlag = false;
+        this.walletsFlag = false;
+        this.upiFlag = false;
+        this.router.navigateByUrl('/select-method/credit-card');
+    }
+
+    netBanking() {
+        this.creditCardFlag = false;
+        this.debitCardFlag = false;
+        this.netBankingFlag = true;
+        this.walletsFlag = false;
+        this.upiFlag = false;
+        this.router.navigateByUrl('/select-method/credit-card');
+    }
+
+    wallets() {
+        this.creditCardFlag = false;
+        this.debitCardFlag = false;
+        this.netBankingFlag = false;
+        this.walletsFlag = true;
+        this.upiFlag = false;
+        this.router.navigateByUrl('/select-method/credit-card');
+    }
+
+    upi() {
+        this.creditCardFlag = false;
+        this.debitCardFlag = false;
+        this.netBankingFlag = false;
+        this.walletsFlag = false;
+        this.upiFlag = true;
         this.router.navigateByUrl('/select-method/credit-card');
     }
 
