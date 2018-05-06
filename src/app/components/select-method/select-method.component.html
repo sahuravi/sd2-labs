@@ -1,0 +1,14 @@
+<div class="outer-container">
+    <div class="method-container">
+        <div class="method-type">
+            <div class="payment credit-card" (click)="creditCard()">Credit Card</div>
+            <div class="payment debit-card">Debit Card</div>
+            <div class="payment net-banking">Net Banking</div>
+            <div class="payment wallets">Walletes</div>
+            <div class="payment upi">UPI</div>
+        </div>
+        <div class="right-container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

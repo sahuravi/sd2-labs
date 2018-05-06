@@ -8,10 +8,18 @@ import { AppComponent } from './app.component';
 import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SelectAmountRadioComponent } from './components/select-amount-radio/select-amount-radio.component';
+import { SelectMethodComponent } from './components/select-method/select-method.component';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
 
 const routes: Routes = [
     {
         path: 'select-amount', component: SelectAmountComponent
+    },
+    {
+        path: 'select-method', component: SelectMethodComponent
+    },
+    {
+        path: 'select-method/credit-card', component: CreditCardComponent
     },
     {
         path: '', component: FetchDataComponent
@@ -35,5 +43,7 @@ export const AppRoutingComponent = [
     SelectAmountComponent,
     FetchDataComponent,
     PageNotFoundComponent,
-    SelectAmountRadioComponent
+    SelectAmountRadioComponent,
+    SelectMethodComponent,
+    CreditCardComponent
 ];

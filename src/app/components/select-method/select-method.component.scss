@@ -1,0 +1,30 @@
+.outer-container {
+    display: block;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    .method-container {
+        height: 316px;
+        width: 780px;
+        display: inline-flex;
+        .method-type {
+            height: 100%;
+            width: 160px;
+            border: 1px solid gray;
+            .payment {
+                height: 63px;
+                border-bottom: 1px solid gray;
+                text-align: center;
+                padding: 18px 5px;
+                background-color: #f7f7f7;
+                cursor: pointer;
+            }
+        }
+        .right-container {
+            height: 100%;
+            width: 620px;
+            border: 1px solid gray;
+            border-left: none;
+        }
+    }
+}
