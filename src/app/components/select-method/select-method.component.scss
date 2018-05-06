@@ -1,8 +1,17 @@
+.header {
+    position: relative;
+    left: calc(50% - 390px);
+    width: 780px;
+    .text-format {
+        color: forestgreen;
+        font-size: 20px;
+    }
+}
 .outer-container {
     display: block;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
     .method-container {
         height: 316px;
         width: 780px;

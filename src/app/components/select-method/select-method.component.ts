@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-// import { AmountUpdateService } from '../../services/amount-update.service';
+import { AmountUpdateService } from '../../services/amount-update.service';
 
 @Component({
     selector: 'app-select-method',
@@ -16,8 +16,11 @@ export class SelectMethodComponent implements OnInit {
     netBankingFlag = false;
     walletsFlag = false;
     upiFlag = false;
+    price;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private amountUpdateService: AmountUpdateService) {
+        this.price = this.amountUpdateService.price;
+    }
     ngOnInit() { }
 
     creditCard() {
