@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingComponent, AppRoutingModule } from './app-routing.module';
 import { DataService } from './services/data.service';
+import { AmountUpdateService } from './services/amount-update.service';
 
 import { AppComponent } from './app.component';
 
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
         HttpClientModule,
         AppRoutingModule
     ],
-    providers: [DataService],
+    providers: [DataService, AmountUpdateService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
